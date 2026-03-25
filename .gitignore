@@ -1,0 +1,19 @@
+# API klíče
+.env
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Generovaný výstup (Netlify buildne z _articles/)
+site/articles/
+site/images/
+site/index.html
+site/feed.xml
