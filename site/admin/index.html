@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Novinky Inspiruj.se</title>
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --bg: #fafaf8;
+            --accent: #c45a3c;
+            --border: #e5e5e0;
+            --max-width: 820px;
+            --font-body: 'Georgia', 'Times New Roman', serif;
+            --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-ui); color: var(--text); background: var(--bg); line-height: 1.6; }
+
+        /* Layout */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 2rem 1.5rem; }
+
+        /* Header */
+        header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+        header h1 { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+        header h1 a { color: var(--text); text-decoration: none; }
+        header .badge { font-size: 0.7rem; background: var(--accent); color: white; padding: 0.15rem 0.5rem; border-radius: 3px; }
+
+        /* Login */
+        .login { max-width: 400px; margin: 4rem auto; text-align: center; }
+        .login h2 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .login p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .login input { width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--border); border-radius: 4px; font-family: monospace; font-size: 0.85rem; }
+        .login button { margin-top: 0.75rem; }
+
+        /* Buttons */
+        button, .btn { font-family: var(--font-ui); font-size: 0.8rem; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 4px; background: white; color: var(--text); cursor: pointer; text-decoration: none; display: inline-block; }
+        button:hover, .btn:hover { border-color: var(--text-secondary); }
+        .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
+        .btn-primary:hover { background: #a8482f; border-color: #a8482f; }
+        .btn-sm { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+
+        /* Article list */
+        .article-list { list-style: none; }
+        .article-list li { padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .article-list .meta { flex: 1; }
+        .article-list .title { font-weight: 600; font-size: 0.95rem; }
+        .article-list .date { font-size: 0.75rem; color: var(--text-secondary); }
+        .article-list .actions { flex-shrink: 0; }
+
+        /* Editor */
+        .editor-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 0.5rem; flex-wrap: wrap; }
+        .editor-bar h2 { font-size: 1rem; }
+        .editor-bar .btns { display: flex; gap: 0.5rem; }
+        .editor-tabs { display: flex; gap: 0; margin-bottom: 0; }
+        .editor-tabs button { border-radius: 4px 4px 0 0; border-bottom: none; background: white; }
+        .editor-tabs button.active { background: var(--bg); font-weight: 600; border-bottom: 2px solid var(--accent); }
+
+        textarea#editor {
+            width: 100%; min-height: 70vh; padding: 1rem;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem; line-height: 1.7; border: 1px solid var(--border);
+            border-radius: 0 4px 4px 4px; background: white; color: var(--text);
+            resize: vertical; tab-size: 4;
+        }
+        textarea#editor:focus { outline: none; border-color: var(--accent); }
+
+        .preview {
+            border: 1px solid var(--border); border-radius: 0 4px 4px 4px;
+            padding: 2rem; background: white; min-height: 70vh;
+            font-family: var(--font-body); font-size: 1rem; line-height: 1.7;
+            display: none;
+        }
+        .preview h1 { font-size: 1.8rem; margin-bottom: 1rem; line-height: 1.2; }
+        .preview p { margin-bottom: 1rem; }
+        .preview .meta-preview { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+
+        /* Status */
+        .status { position: fixed; bottom: 1.5rem; right: 1.5rem; padding: 0.6rem 1rem; border-radius: 4px; font-size: 0.8rem; background: var(--text); color: white; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 100; }
+        .status.show { opacity: 1; }
+        .status.error { background: #c0392b; }
+        .status.success { background: #27ae60; }
+
+        /* Loading */
+        .loading { text-align: center; padding: 3rem; color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .article-list li { flex-direction: column; align-items: flex-start; }
+            .editor-bar { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="../">Novinky Inspiruj.se</a></h1>
+        <span class="badge">ADMIN</span>
+    </header>
+
+    <div class="container">
+        <!-- Login -->
+        <div id="login-view" class="login" style="display:none;">
+            <h2>Prihlaseni</h2>
+            <p>GitHub Personal Access Token s pravem zapisu do repa miloscermak/novinky</p>
+            <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
+            <br>
+            <button class="btn-primary" onclick="doLogin()">Prihlasit</button>
+        </div>
+
+        <!-- Article list -->
+        <div id="list-view" style="display:none;">
+            <div class="editor-bar">
+                <h2>Clanky</h2>
+                <button class="btn-sm" onclick="loadArticles()">Obnovit</button>
+            </div>
+            <ul class="article-list" id="article-list"></ul>
+        </div>
+
+        <!-- Editor -->
+        <div id="editor-view" style="display:none;">
+            <div class="editor-bar">
+                <h2 id="editor-title">Editace</h2>
+                <div class="btns">
+                    <button class="btn-sm" onclick="showList()">Zpet</button>
+                    <button class="btn-sm btn-primary" onclick="saveArticle()">Ulozit a publikovat</button>
+                </div>
+            </div>
+            <div class="editor-tabs">
+                <button id="tab-edit" class="active" onclick="showTab('edit')">Markdown</button>
+                <button id="tab-preview" onclick="showTab('preview')">Nahled</button>
+            </div>
+            <textarea id="editor" spellcheck="true"></textarea>
+            <div id="preview" class="preview"></div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">Nacitam...</div>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <script>
+    // ── Config ──
+    const OWNER = 'miloscermak';
+    const REPO = 'novinky';
+    const BRANCH = 'main';
+    const ARTICLES_PATH = '_articles';
+
+    // ── State ──
+    let token = null;
+    let currentFile = null; // { path, sha, name }
+    let articles = [];
+
+    // ── GitHub API ──
+    async function ghFetch(path, opts = {}) {
+        const url = `https://api.github.com/repos/${OWNER}/${REPO}/${path}`;
+        const headers = {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/vnd.github.v3+json',
+            ...opts.headers
+        };
+        const res = await fetch(url, { ...opts, headers });
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.message || `GitHub API ${res.status}`);
+        }
+        return res.json();
+    }
+
+    // ── Auth ──
+    function doLogin() {
+        const t = document.getElementById('token-input').value.trim();
+        if (!t) return;
+        token = t;
+        // Persist in sessionStorage for tab refreshes
+        try { sessionStorage.setItem('gh_token', t); } catch(e) {}
+        showList();
+        loadArticles();
+    }
+
+    function checkAuth() {
+        try { token = sessionStorage.getItem('gh_token'); } catch(e) {}
+        if (token) {
+            showList();
+            loadArticles();
+        } else {
+            hide('loading');
+            show('login-view');
+        }
+    }
+
+    // ── Views ──
+    function show(id) { document.getElementById(id).style.display = ''; }
+    function hide(id) { document.getElementById(id).style.display = 'none'; }
+
+    function showList() {
+        hide('login-view'); hide('editor-view'); show('list-view');
+        currentFile = null;
+    }
+
+    function showEditor(file) {
+        hide('list-view'); show('editor-view');
+        currentFile = file;
+        document.getElementById('editor-title').textContent = file.name.replace('.md', '');
+        document.getElementById('editor').value = file.content;
+        showTab('edit');
+    }
+
+    function showTab(tab) {
+        const editor = document.getElementById('editor');
+        const preview = document.getElementById('preview');
+        const tabEdit = document.getElementById('tab-edit');
+        const tabPreview = document.getElementById('tab-preview');
+
+        if (tab === 'edit') {
+            editor.style.display = '';
+            preview.style.display = 'none';
+            tabEdit.classList.add('active');
+            tabPreview.classList.remove('active');
+        } else {
+            editor.style.display = 'none';
+            preview.style.display = '';
+            tabEdit.classList.remove('active');
+            tabPreview.classList.add('active');
+            renderPreview();
+        }
+    }
+
+    // ── Article list ──
+    async function loadArticles() {
+        hide('login-view');
+        show('loading'); hide('list-view');
+        try {
+            const files = await ghFetch(`contents/${ARTICLES_PATH}?ref=${BRANCH}`);
+            articles = files.filter(f => f.name.endsWith('.md')).sort((a, b) => b.name.localeCompare(a.name));
+            renderArticleList();
+            hide('loading'); show('list-view');
+        } catch (e) {
+            hide('loading');
+            if (e.message.includes('401') || e.message.includes('Bad credentials')) {
+                token = null;
+                try { sessionStorage.removeItem('gh_token'); } catch(ex) {}
+                show('login-view');
+                notify('Neplatny token', 'error');
+            } else {
+                notify('Chyba: ' + e.message, 'error');
+                show('list-view');
+            }
+        }
+    }
+
+    function renderArticleList() {
+        const ul = document.getElementById('article-list');
+        ul.innerHTML = articles.map(f => {
+            const name = f.name.replace('.md', '');
+            return `<li>
+                <div class="meta">
+                    <div class="title">${esc(name)}</div>
+                    <div class="date">${esc(f.name)}</div>
+                </div>
+                <div class="actions">
+                    <button class="btn-sm" onclick="editArticle('${esc(f.path)}', '${esc(f.sha)}', '${esc(f.name)}')">Editovat</button>
+                </div>
+            </li>`;
+        }).join('');
+    }
+
+    // ── Edit ──
+    async function editArticle(path, sha, name) {
+        show('loading'); hide('list-view');
+        try {
+            const data = await ghFetch(`contents/${path}?ref=${BRANCH}`);
+            const content = decodeBase64(data.content);
+            showEditor({ path, sha: data.sha, name, content });
+            hide('loading');
+        } catch (e) {
+            hide('loading'); show('list-view');
+            notify('Chyba pri nacitani: ' + e.message, 'error');
+        }
+    }
+
+    // ── Save ──
+    async function saveArticle() {
+        if (!currentFile) return;
+        const content = document.getElementById('editor').value;
+        const btn = document.querySelector('#editor-view .btn-primary');
+        btn.textContent = 'Ukladam...';
+        btn.disabled = true;
+
+        try {
+            const data = await ghFetch(`contents/${currentFile.path}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: `Edit: ${currentFile.name.replace('.md', '')}`,
+                    content: encodeBase64(content),
+                    sha: currentFile.sha,
+                    branch: BRANCH
+                })
+            });
+            currentFile.sha = data.content.sha;
+            notify('Ulozeno! Netlify prebuilduje behem ~30s.', 'success');
+        } catch (e) {
+            notify('Chyba pri ukladani: ' + e.message, 'error');
+        } finally {
+            btn.textContent = 'Ulozit a publikovat';
+            btn.disabled = false;
+        }
+    }
+
+    // ── Preview ──
+    function renderPreview() {
+        const raw = document.getElementById('editor').value;
+        const { meta, body } = parseFrontmatter(raw);
+        const preview = document.getElementById('preview');
+
+        let metaHtml = '';
+        if (meta.title || meta.date) {
+            metaHtml = `<div class="meta-preview">`;
+            if (meta.date) metaHtml += `<div>${esc(meta.date)}</div>`;
+            if (meta.source_name) metaHtml += `<div>Zdroj: ${esc(meta.source_name)}</div>`;
+            metaHtml += `</div>`;
+        }
+
+        const titleHtml = meta.title ? `<h1>${esc(meta.title)}</h1>` : '';
+        const bodyHtml = body.split(/\n\s*\n/).filter(p => p.trim()).map(p => {
+            let t = esc(p.trim()).replace(/\n/g, ' ');
+            t = t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            t = t.replace(/\*(.+?)\*/g, '<em>$1</em>');
+            return `<p>${t}</p>`;
+        }).join('\n');
+
+        preview.innerHTML = titleHtml + metaHtml + bodyHtml;
+    }
+
+    // ── Helpers ──
+    function parseFrontmatter(text) {
+        if (!text.startsWith('---')) return { meta: {}, body: text };
+        const end = text.indexOf('---', 3);
+        if (end === -1) return { meta: {}, body: text };
+        const fmText = text.substring(3, end).trim();
+        const body = text.substring(end + 3).trim();
+        const meta = {};
+        for (const line of fmText.split('\n')) {
+            const idx = line.indexOf(':');
+            if (idx > 0) {
+                const key = line.substring(0, idx).trim();
+                let val = line.substring(idx + 1).trim();
+                val = val.replace(/^["']|["']$/g, '');
+                meta[key] = val;
+            }
+        }
+        return { meta, body };
+    }
+
+    function esc(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+
+    function decodeBase64(str) {
+        const cleaned = str.replace(/\n/g, '');
+        const bytes = Uint8Array.from(atob(cleaned), c => c.charCodeAt(0));
+        return new TextDecoder().decode(bytes);
+    }
+
+    function encodeBase64(str) {
+        const bytes = new TextEncoder().encode(str);
+        let binary = '';
+        for (const b of bytes) binary += String.fromCharCode(b);
+        return btoa(binary);
+    }
+
+    function notify(msg, type = '') {
+        const el = document.getElementById('status');
+        el.textContent = msg;
+        el.className = 'status show' + (type ? ' ' + type : '');
+        setTimeout(() => { el.className = 'status'; }, 3000);
+    }
+
+    // Keyboard shortcut: Cmd+S to save
+    document.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+            e.preventDefault();
+            if (currentFile) saveArticle();
+        }
+    });
+
+    // ── Init ──
+    checkAuth();
+    </script>
+</body>
+</html>

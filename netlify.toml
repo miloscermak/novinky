@@ -6,3 +6,9 @@
   from = "/feed"
   to = "/feed.xml"
   status = 200
+
+# Admin stránka - robots noindex
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
