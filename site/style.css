@@ -58,6 +58,15 @@ body {
     font-family: var(--font-ui);
 }
 
+.site-header .tagline a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.site-header .tagline a:hover {
+    text-decoration: underline;
+}
+
 /* Main content */
 
 main {
