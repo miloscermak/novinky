@@ -126,7 +126,7 @@ def build_article_page(meta: dict, body_html: str, slug: str) -> str:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} — Novinky Inspiruj.se</title>
+    <title>{title} — AI Inspiruj.se</title>
     <link rel="stylesheet" href="../style.css">
     <meta property="og:title" content="{title}">
     <meta property="og:type" content="article">
@@ -134,7 +134,7 @@ def build_article_page(meta: dict, body_html: str, slug: str) -> str:
 </head>
 <body>
     <header class="site-header">
-        <h1><a href="../">Novinky Inspiruj.se</a></h1>
+        <h1><a href="../">AI Inspiruj.se</a></h1>
         <p class="tagline">AI svět v kontextu</p>
     </header>
     <main>
@@ -194,15 +194,15 @@ def build_index(articles: list[dict]) -> str:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novinky Inspiruj.se — AI svět v kontextu</title>
+    <title>AI Inspiruj.se — AI svět v kontextu</title>
     <link rel="stylesheet" href="style.css">
-    <meta property="og:title" content="Novinky Inspiruj.se">
+    <meta property="og:title" content="AI Inspiruj.se">
     <meta property="og:description" content="AI svět v kontextu. Explainer články o umělé inteligenci.">
-    <link rel="alternate" type="application/rss+xml" title="Novinky Inspiruj.se" href="feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="AI Inspiruj.se" href="feed.xml">
 </head>
 <body>
     <header class="site-header">
-        <h1><a href="./">Novinky Inspiruj.se</a></h1>
+        <h1><a href="./">AI Inspiruj.se</a></h1>
         <p class="tagline">AI svět v kontextu</p>
     </header>
     <main>
@@ -216,7 +216,7 @@ def build_index(articles: list[dict]) -> str:
 </html>"""
 
 
-def build_rss(articles: list[dict], site_url: str = "https://novinky.inspiruj.se") -> str:
+def build_rss(articles: list[dict], site_url: str = "https://ai.inspiruj.se") -> str:
     """Generuje RSS feed."""
     articles.sort(key=lambda a: a.get("date", ""), reverse=True)
 
@@ -244,7 +244,7 @@ def build_rss(articles: list[dict], site_url: str = "https://novinky.inspiruj.se
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-    <title>Novinky Inspiruj.se</title>
+    <title>AI Inspiruj.se</title>
     <link>{site_url}</link>
     <description>AI svět v kontextu. Explainer články o umělé inteligenci.</description>
     <language>cs</language>
