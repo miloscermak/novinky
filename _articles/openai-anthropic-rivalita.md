@@ -1,5 +1,5 @@
 ---
-title: "Válka dvou domů. Jak osobní spory formovaly to, jakou dnes používáme AI"
+title: "OpenAIvs. Anthropic. Jak osobní spory formovaly to, jakou dnes používáme AI"
 date: 2026-03-29
 image: openai-anthropic-rivalita.png
 source_name: "The Wall Street Journal"
