@@ -1,5 +1,5 @@
 ---
-title: "OpenAI vs. Anthropic. Jak osobní spory formovaly to, jakou dnes používáme AI"
+title: "OpenAI vs. Anthropic. Jak osobní spory formovaly to, jakou AI dnes máme k dispozici"
 date: 2026-03-29
 image: openai-anthropic-rivalita.png
 source_name: "The Wall Street Journal"
