@@ -134,8 +134,8 @@ def build_article_page(meta: dict, body_html: str, slug: str) -> str:
 </head>
 <body>
     <header class="site-header">
-        <h1><a href="../">AI Inspiruj.se</a></h1>
-        <p class="tagline">AI svět v kontextu</p>
+        <h1><a href="../">ai.inspiruj.se</a></h1>
+        <p class="tagline">Novinky na blogu vzdělávacího webu <a href="https://inspiruj.se">Inspiruj.se</a></p>
     </header>
     <main>
         <a href="../" class="back-link">&larr; Zpět na přehled</a>
@@ -202,8 +202,8 @@ def build_index(articles: list[dict]) -> str:
 </head>
 <body>
     <header class="site-header">
-        <h1><a href="./">AI Inspiruj.se</a></h1>
-        <p class="tagline">AI svět v kontextu</p>
+        <h1><a href="./">ai.inspiruj.se</a></h1>
+        <p class="tagline">Novinky na blogu vzdělávacího webu <a href="https://inspiruj.se">Inspiruj.se</a></p>
     </header>
     <main>
         <ul class="article-list">{items_html}
