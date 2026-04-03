@@ -1,5 +1,5 @@
 ---
-title: "Nejděsivější film roku není horor. Je to dokumentární zpověď nastávajícího otce"
+title: "Nejděsivější film o AI není horor. Je to dokumentární zpověď nastávajícího otce"
 date: 2026-04-03
 image: ai-doc-apokaloptimismus.png
 source_name: Variety, Time, Techdirt
@@ -7,13 +7,17 @@ source_url: https://variety.com/2026/film/reviews/the-ai-doc-or-how-i-became-an-
 excerpt: "Oscarový režisér Daniel Roher zpovídá šéfy OpenAI, Anthropicu a DeepMind. Výsledek je fascinující — i když ne vždy z důvodů, které tvůrci zamýšleli."
 ---
 
-V lednu 2023 seděl Daniel Roher v publiku a poslouchal přednášku Tristana Harrise s názvem „AI Dilemma". Roher měl v té době za sebou Oscara za dokument Navalny, manželku filmařku Caroline Lindy a první pozitivní těhotenský test. Odcházel s pocitem, že svět, do kterého se chystá přivést dítě, se možná právě rozhodl zešílet.
+V lednu 2023 seděl Daniel Roher v publiku a poslouchal přednášku Tristana Harrise s názvem „AI Dilemma". Roher měl v té době za sebou Oscara za dokument Navalny, vedle sebe manželku filmařku Caroline Lindy a v kapse měli první pozitivní těhotenský test. Odcházel s pocitem, že svět, do kterého se chystá přivést dítě, se možná právě rozhodl zešílet.
 
-O tři roky později je výsledkem devadesátiminutový snímek The AI Doc: Or How I Became an Apocaloptimist, který od konce března běží v amerických kinech a na Rotten Tomatoes drží 87 procent. Kritici ho popisují jako „nejděsivější film roku". Není to přitom horor. Je to příběh chlapa, kterému se hromadí zmačkané papíry v pracovně a který se upřímně ptá Sama Altmana, jestli jsme odsouzeni k zániku — zatímco mu doma roste břicho manželky.
+A rozhodl se to zjistit.
 
-A přesto — nebo možná právě proto — je to jeden z nejpozoruhodnějších dokumentů o umělé inteligenci, jaké dosud vznikly.
+O tři roky později je výsledkem tohoto přemýšlení devadesátiminutový snímek The AI Doc: Or How I Became an Apocaloptimist, který od konce března běží v amerických kinech a na Rotten Tomatoes drží 87 procent. Kritici ho popisují jako „nejděsivější film roku". Není to přitom horor. Je to příběh muže, kterému se hromadí zmačkané papíry v pracovně a který se upřímně ptá Sama Altmana, jestli jsme odsouzeni k zániku — anebo nás čeká skvělá budoucnost.
 
-Roher totiž udělal něco, co drtivá většina AI dokumentů nedokáže. Nepředstírá odstup. Když se ptá Tristana Harrise, jestli je lidstvo v háji, odkazuje přitom na svého nenarozeného syna. Harris po chvíli ticha odpovídá, že zprávy nejsou dobré. Je to moment, který by v konvenčním dokumentu působil jako levná manipulace. Tady funguje, protože Roherova úzkost je očividně autentická. Caroline Lindy celým filmem provází jako vypravěčka a hlas rozumu, který manželovy záchvaty existenciální paniky ukotvuje v realitě rodinného života. Ručně kreslené animace obou partnerů — jakýsi pohyblivý flipbook, v němž si vyměňují ustarané pohledy napříč otrhanými stránkami — dodávají náročnému technologickému tématu překvapivě hřejivý lidský rozměr.
+Doma mezitím ženě roste břicho.
+
+A přesto — nebo možná právě proto — je to jeden z nejpozoruhodnějších dokumentů o umělé inteligenci, jaký v posledních letech, nejen v rámci šílenství kolem ChatGPT, asi vznikl.
+
+Roher nepředstírá odstup. Když se ptá Tristana Harrise, jestli je lidstvo v háji, odkazuje přitom na svého nenarozeného syna. Harris po chvíli ticha odpovídá, že zprávy nejsou dobré. Je to moment, který by v konvenčním dokumentu působil jako levná manipulace. Tady funguje, protože Roherova úzkost je očividně autentická. Caroline Lindy celým filmem provází jako vypravěčka a hlas rozumu, který manželovy záchvaty existenciální paniky ukotvuje v realitě rodinného života. Ručně kreslené animace obou partnerů — jakýsi pohyblivý flipbook, v němž si vyměňují ustarané pohledy napříč otrhanými stránkami — dodávají náročnému technologickému tématu překvapivě hřejivý lidský rozměr.
 
 Jenže: osobní upřímnost je zároveň největší síla i největší slabina tohoto filmu.
 
