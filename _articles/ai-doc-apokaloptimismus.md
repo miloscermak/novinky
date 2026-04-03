@@ -35,4 +35,4 @@ Tři roky natáčení měly na režiséra hluboký osobní dopad. Jako přímou 
 
 A přesto to gesto dává smysl. Protože The AI Doc ve skutečnosti není film o umělé inteligenci. Je to film o bezmoci. O pocitu, že se svět mění rychleji, než mu dokážeme porozumět, a že ti, kdo sedí u kormidla, buď nevědí kam jedou, nebo to nechtějí říct. Roher na to odpovídá po svém — jako otec, ne jako novinář. Nepřináší odpovědi, ale pokládá jednu otázku, která stojí za celý film: do jakého světa vlastně pouštíme své děti?
 
-Odpověď zatím nikdo nemá. Ale aspoň se na ni v kině u toho dá brečet.
+Odpověď zatím nikdo nemá. Ale aspoň se v kině u toho dá brečet.
