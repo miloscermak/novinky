@@ -1,5 +1,5 @@
 ---
-title: "Film o AI, který vás vyděsí? Dokument nastávajícího otce"
+title: "Film o AI, který vás vyděsí? The AI Doc je dokument o obavách nastávajícího otce"
 date: 2026-04-03
 image: ai-doc-apokaloptimismus.png
 source_name: Variety, Time, Techdirt
