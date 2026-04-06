@@ -1,5 +1,5 @@
 ---
-title: "Evropa a AI: Problém není technologie, ale šéfové. Proč kontinent znovu zaspává revoluci"
+title: "Evropa a AI: Proč jsme pozadu, a co to říká o tom, jak ve firmách k adopci AI přistupovat"
 date: 2026-04-06
 image: ai-adopce-evropa-usa.png
 source_name: "Bick, Blandin, Deming, Fuchs-Schündeln, Jessen — Mind the Gap: AI Adoption in Europe and the U.S."
@@ -7,7 +7,7 @@ source_url: https://www.nber.org/papers/w34995
 excerpt: "43 % amerických pracovníků používá AI v práci, v Evropě jen 32 %. Nová studie NBER ukazuje, že hlavní příčinou není vzdělání ani průmyslová struktura — ale to, jestli vám firma řekne, že AI používat máte."
 ---
 
-Mazi čísla, která by měla evropské politiky znervóznit, nepatří jen rozpočtový deficit nebo demografická křivka. Je to 43 versus 32. Tolik procent pracovníků v USA a v Evropě používá umělou inteligenci ve své práci. A propast se rozšiřuje.
+Mezi čísla, která by měla evropské politiky znervóznit, nepatří jen rozpočtový deficit nebo demografická křivka. Je to 43 a 32. Tolik procent pracovníků v USA a v Evropě, v tomto pořadí, používá umělou inteligenci ve své práci. A propast se rozšiřuje.
 
 Od poloviny devadesátých let roste americká produktivita rychleji než evropská. Výstup na odpracovanou hodinu se v USA od roku 1995 zvýšil o 85 procent, v Evropě o 29. Předchozí výzkum to spojoval s rozdílnou adopcí informačních technologií. Teď se nabízí otázka, jestli se totéž opakuje s umělou inteligencí. Tým ekonomů z Harvardu, Vanderbiltu, Federal Reserve a dvou německých univerzit na to odpovídá v rozsáhlé studii pro Brookings Institution. A odpověď nezní optimisticky, myšleno pro Evropu.
 
