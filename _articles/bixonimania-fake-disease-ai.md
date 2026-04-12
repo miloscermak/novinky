@@ -7,7 +7,7 @@ source_url: https://www.nature.com/articles/d41586-025-01086-z
 excerpt: "Švédská výzkumnice si vymyslela oční chorobu. Během týdnů ji AI chatboti doporučovali pacientům jako diagnózu. Příběh o tom, jak snadno se dá otrávit studna, ze které pije umělá inteligence."
 ---
 
-Bixonimania zní jako něco, co byste chytili na tropické dovolené po kontaktu s podezřelým hmyzem. Ve skutečnosti je to oční onemocnění způsobené nadměrným vystavením modrému světlu z obrazovek, postihuje jednoho z devadesáti tisíc lidí a léčba vyžaduje návštěvu oftalmologa. Takhle to alespoň tvrdily ChatGPT, Gemini, Copilot i Perplexity, když se jich v roce 2024 někdo zeptal.
+Bixonimania zní jako něco, co lze chytit na tropické dovolené po kontaktu s podezřelým hmyzem. Ve skutečnosti je to oční onemocnění způsobené nadměrným vystavením modrému světlu z obrazovek, postihuje jednoho z devadesáti tisíc lidí a léčba vyžaduje návštěvu oftalmologa. Takhle to alespoň tvrdily ChatGPT, Gemini, Copilot i Perplexity, když se jich v roce 2024 někdo zeptal.
 
 Jenže: bixonimania neexistuje. Nikdy neexistovala. Celou ji vymyslela Almira Osmanovic Thunström, výzkumnice z Göteborské univerzity, která chtěla zjistit, jestli dokáže jazykovým modelům podstrčit falešnou diagnózu. Název vybrala záměrně absurdní — žádná oční choroba by se nikdy nejmenovala „mánie", to je psychiatrický termín. Bylo to jako pojmenovat zlomeninu nohy „paranoia kotníku".
 
