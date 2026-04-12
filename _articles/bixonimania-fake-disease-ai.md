@@ -3,7 +3,7 @@ title: "Vymyšlená nemoc oklamala AI. A pak i skutečné vědce"
 date: 2026-04-12
 image: bixonimania-ilustrace.png
 source_name: Nature
-source_url: https://www.nature.com/articles/d41586-025-01086-z
+source_url: https://www.nature.com/articles/d41586-026-01100-y
 excerpt: "Švédská výzkumnice si vymyslela oční chorobu. Během týdnů ji AI chatboti doporučovali pacientům jako diagnózu. Příběh o tom, jak snadno se dá otrávit studna, ze které pije umělá inteligence."
 ---
 
