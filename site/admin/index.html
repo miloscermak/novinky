@@ -320,6 +320,7 @@
                 </div>
                 <div class="actions">
                     <button class="btn-sm" onclick="editArticle('${esc(f.path)}', '${esc(f.sha)}', '${esc(f.name)}')">Editovat</button>
+                    <button class="btn-sm btn-danger" onclick="deleteArticle('${esc(f.path)}', '${esc(f.name)}')">Smazat</button>
                 </div>
             </li>`;
         }).join('');
@@ -457,6 +458,52 @@
             reader.onerror = reject;
             reader.readAsDataURL(file);
         });
+    }
+
+    // ── Delete ──
+    async function deleteArticle(path, name) {
+        const slug = name.replace('.md', '');
+        if (!confirm(`Opravdu smazat "${slug}"?\n\nSmaže se článek i ilustrace (pokud existuje). Akce je nevratná.`)) return;
+
+        show('loading'); hide('list-view');
+        try {
+            // Get current SHA for the article
+            const fileData = await ghFetch(`contents/${path}?ref=${BRANCH}`);
+            await ghFetch(`contents/${path}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: `Smazán: ${slug}`,
+                    sha: fileData.sha,
+                    branch: BRANCH
+                })
+            });
+
+            // Try to delete associated image(s)
+            const imgExtensions = ['png', 'jpg', 'jpeg', 'webp'];
+            for (const ext of imgExtensions) {
+                const imgName = `${slug}.${ext}`;
+                if (!rootImages.includes(imgName)) continue;
+                try {
+                    const imgData = await ghFetch(`contents/${imgName}?ref=${BRANCH}`);
+                    await ghFetch(`contents/${imgName}`, {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            message: `Smazána ilustrace: ${imgName}`,
+                            sha: imgData.sha,
+                            branch: BRANCH
+                        })
+                    });
+                } catch(e) { /* image delete failed, not critical */ }
+            }
+
+            notify('Článek smazán! Netlify přestaví web během ~30s.', 'success');
+            await loadArticles();
+        } catch (e) {
+            hide('loading'); show('list-view');
+            notify('Chyba při mazání: ' + e.message, 'error');
+        }
     }
 
     // ── Preview ──
