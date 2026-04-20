@@ -1,5 +1,5 @@
 ---
-title: "AI se nezlepšila. Přiznala si, že na to sama nestačí — a to byl průlom"
+title: "AI je někdy geniální, někdy hloupá, často nespolehlivá. Přesto ji výzkumníci učí, jak být dobrým pracovním nástrojem"
 date: 2026-04-20
 image: ai-pokora-ilustrace.png
 source_name: The Wall Street Journal
