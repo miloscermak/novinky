@@ -9,13 +9,13 @@ excerpt: "Proč systémy, které halucinují ze své podstaty, jsou najednou dos
 
 # AI se nezlepšila. Přiznala si, že na to sama nestačí — a to byl průlom
 
-Začátkem dubna unikl na internet zdrojový kód Anthropicova Claude Code — jednoho z nejpoužívanějších AI nástrojů v Silicon Valley. Šlo o nehodu, Anthropic kód rychle stáhnul, ale škoda (nebo dar, záleží na úhlu pohledu) byla hotová. Výzkumníci, kteří se do kódu podívali, se nedočkali žádné sci-fi superinteligence. Místo toho našli něco mnohem obyčejnějšího: systém plný skriptů, pravidel a záplat — jeden kousek kódu třeba detekuje, jestli je uživatel vzteklý, a to tak, že prohledává jeho zprávy na přítomnost nadávek.
+Začátkem dubna unikl na internet zdrojový kód Claude Code, jednoho z nejpoužívanějších AI nástrojů v Silicon Valley. Šlo o nehodu, společnost Anthropic kód rychle stáhla, ale škoda byla hotová. Lépe řečeno k žádné škodě nedošlo, možná spíš naopak. Výzkumníci, kteří se do kódu podívali, se nedočkali žádné sci-fi superinteligence. Místo toho našli něco mnohem obyčejnějšího: systém plný skriptů, pravidel a záplat. Jeden kousek kódu třeba detekuje, jestli je uživatel vzteklý, a to tak, že prohledává jeho zprávy a hledá nadávky.
 
-Jenže právě v téhle banální všednosti se skrývá odpověď na otázku, která trápí každého, kdo s AI pracuje: proč systémy, které halucinují ze své podstaty, jsou najednou dost spolehlivé na to, aby se daly použít k reálné práci?
+Jenže právě v téhle banální všednosti se skrývá odpověď na otázku, která trápí každého, kdo s AI pracuje: proč systémy, které ze své podstaty halucinují a jsou nekonzistentní a nespolehlivé, jsou najednou dost dobré na to, aby se daly použít k reálné práci?
 
 Odpověď není v tom, že by AI zchytřela. Je v tom, že se naučila přiznat, že na to sama nestačí.
 
----
+*
 
 Velké jazykové modely jsou ze své podstaty generátory pravděpodobnosti. Predikují, které slovo by mělo následovat po předchozím. To je elegantní, ale také hluboce nespolehlivé — model neví, co ví a co si jen vymýšlí. Halucinace, čili vymýšlení faktů s dokonale sebejistým výrazem, jsou jeho přirozeností, ne výjimkou.
 
@@ -23,27 +23,25 @@ Přesto se v posledních zhruba dvanácti měsících stalo něco, co zákazníc
 
 Tři věci se změnily. Žádná z nich není záhadná.
 
----
+*
 
-První je prosté vyhledávání. Dnes každý relevantní AI systém umí v případě potřeby zavolat Google nebo jiný vyhledávač a zkontrolovat, co na internetu aktuálně stojí. Vzniklo celé odvětví firem, které se specializují na to, že Googlu seškrábou výsledky a dodají je AI v přijatelném formátu. To je, svým způsobem, přiznání porážky: model, který měl vědět vše, musí googlovat jako každý jiný. Jenže to funguje.
+První je prosté vyhledávání. Dnes každý relevantní AI systém umí v případě potřeby zavolat Google nebo jiný vyhledávač a zkontrolovat, co je aktuálně na internetu. Vzniklo celé odvětví firem, které se specializují na to, že "stahují" z webů data a dodají je AI v přijatelném formátu. Z vnějšího pohledu je to přiznání porážky: model, který měl vědět vše, musí googlovat jako každý jiný. Ale jak jsme si řekl, LLMs fungují jinak a jejich síla je v něčem jiném. Googlování funguje.
 
 Vedle toho roste průmysl kolem expertních dat — tisíce lidí, odborníků na medicínu, právo nebo finance, jsou placeni od hodiny za to, že zapisují své znalosti do trénovacích datasetů. AI se stala velmi drahým žákem, který potřebuje prémiové učitele, aby se neučil zbytečně špatně.
 
 Druhá věc je matematika. Dříve jazykový model halucinoval i při sčítání. Teď, když dostane úlohu vyžadující výpočet, ji přesměruje na tradiční software — kód, kalkulačku, Python interpreter. Nebojuje s aritmetikou přes pravděpodobnost. Přizná si limit a předá štafetu nástroji, který je na to stavěný.
 
-„LLM samotné jsou víceméně stejně nespolehlivé jako vždy," říká Gary Marcus, AI výzkumník a jeden z nejhlasnějších kritiků přehnaných očekávání od oboru. „Ale zejména v matematice a kódování dokážete výstup LLM předat dalším technologiím — nebo ho jimi řídit — které byly chvíli mimo zájem, ale jsou ve skutečnosti velmi užitečné."
+„LLM samotné jsou víceméně stejně nespolehlivé jako vždy," říká Gary Marcus, AI výzkumník a jeden z nejhlasitějších kritiků přehnaných očekávání od jazykových modelů. „Ale zejména v matematice a kódování dokážete výstup LLM předat dalším technologiím, které ho změní ve velmi užitečný."
 
-Třetí věc je sebekontrola. Moderní AI systémy před odpovědí vedou se sebou samými vnitřní monolog — v oboru se tomu říká „chain of thought" — v němž prochází problémem, kontrolují si kroky, snaží se chytit vlastní chyby. A v kritičtějších nasazeních přibývá praxe tzv. rady modelů: výstup jednoho AI zkontroluje jiný model, klidně od jiného výrobce. ChatGPT zkontroluje Claude, nebo naopak. Odpověď se akceptuje jen při shodě.
+Třetí věc je sebekontrola. Moderní AI systémy před odpovědí vedou samy se sebou cosi  jako vnitřní monolog — v oboru se tomu říká „chain of thought" — a procházejí daný problém, kontrolují učiněné kroky, snaží se chytit vlastní chyby. A v kritičtějších nasazeních přibývá praxe tzv. "radících" modelů: výstup jednoho AI zkontroluje jiný model, klidně od jiného výrobce. ChatGPT zkontroluje Claude, nebo naopak. Odpověď se akceptuje jen při shodě.
 
----
+*
 
 Leaknutý kód Claude Code ukazuje, jak výsledná architektura ve skutečnosti vypadá: je to komplikovaný sendvič, kde staré dobré softwarové inženýrství obaluje jazykový model. Skript na detekci vzteku. Systém správy paměti, aby kontext konverzace nezahltil model a nezačal zesilovat halucinace. Sada nástrojů, na které model volá, když narazí na to, co neumí.
 
-Není to superinteligence. Je to pokora zakódovaná do systému.
+Něco jako pokora zabudovaná do systému.
 
----
-
-A tady je ta pointa, která se v nadšení kolem AI ztrácí: průlom nepřišel v momentě, kdy modely zchytřely. Přišel v momentě, kdy jejich tvůrci přestali věřit, že zchytří dost. Místo aby čekali na model, který bude vědět vše, postavili model, který umí přiznat, že neví — a zavolat toho, kdo ví.
+A tady je ta pointa, která se v nadšení kolem AI ztrácí: průlom nepřišel v momentě, kdy modely zchytřely. Přišel v momentě, kdy jejich tvůrci přestali věřit, že zchytří dost. Místo aby čekali na model, který bude vědět vše, postavili model, který umí přiznat, že neví. Nebo ještě lépe, ty modely musely nejdřív zjistit, že něco neví. A pak už jen povolat na pomoc někoho schopnějšího.
 
 AI nenapodobila lidský mozek. Napodobila lidské instituce: encyklopedii, kalkulačku, recenzní řízení. Systém, ve kterém nikdo nemusí vědět vše, protože úkoly jsou rozděleny mezi specializované nástroje s jasnými kompetencemi.
 
