@@ -1,5 +1,5 @@
 ---
-title: "Musk vs. Altman: Soud století začal koncem dubna. Ale to hlavní se už asi stejně stalu loni v říjnu"
+title: "Musk vs. Altman: Soud století začal koncem dubna. Ale to hlavní se už asi stejně stalo loni v říjnu"
 date: 2026-04-25
 image: musk-vs-altman-soud-stoleti.png
 source_name: "The Times"
